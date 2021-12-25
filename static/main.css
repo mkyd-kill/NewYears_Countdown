@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(OneUI_Dark_w.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 70px;
+    margin: -150px 0 40px;
+    color: white;
+}
+
+.countdown {
+    display: flex;
+    transform: scale(2);
+    color: white;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.time h2 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1;
+    margin: 0 0 5px;
+}
+
+@media(max-width:500px) {
+    h1 {
+        font-size: 45px;
+        display: flex;
+        flex-direction: column;
+    }
+    .time {
+        margin: 5px;
+    }
+    .time h2 {
+        font-size: 13px;
+    }
+    .time small {
+        font-size: 11px;
+    }
+}
+
+
+/* success */
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}
+
+.fireworks {
+    position: fixed;
+}
+
+.content {
+    z-index: 1;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.content h2 {
+    -webkit-text-stroke: 4px aliceblue;
+    color: transparent;
+    font-size: 8em;
+    line-height: .9em;
+}
+
+.content c {
+    color: aliceblue;
+    -webkit-text-stroke: 0 aliceblue;
+}
