@@ -1,0 +1,38 @@
+{
+    "name": "CountDown Timer",
+    "short_name": "Timer",
+    "description": "New Year's Countdown Timer",
+    "start_url": "/home",
+    "id": "/home",
+    "orientation": "portrait",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#041014",
+    "background_color": " #2f4f4f",
+    "author": "Romeo Mureithi Namunde",
+    "icons": [{
+            "scr": "",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "scr": "",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "scr": "",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "scr": "",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

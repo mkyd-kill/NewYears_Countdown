@@ -25,3 +25,18 @@ function updateCountdowntime() {
 
 // setting interval
 setInterval(updateCountdowntime, 1000);
+
+// make sure service workers are supported
+if (navigator.serviceWorker) {
+    // registration when the window loads
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register("/worker.js", { scope: '/home' })
+            .then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
