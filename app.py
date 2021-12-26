@@ -17,8 +17,12 @@ def sw():
     response.headers['Content-Type'] = 'application/javascript'
     return response
 
+@app.route('/manifest.json')
+def manifest():
+    return send_from_directory('static', 'manifest.json')
+
 
 if __name__ == '__main__':
     #from waitress import serve
-    app.run(debug=True)
+    app.run(use_reloader = True, debug=True)
     #serve(app, host="localhost", port=5000)

@@ -3,11 +3,11 @@
 const CACHE_NAME = 'countdown-V2';
 
 // calling the install Event
-self.addEventListener('install', function(event) {
+self.addEventListener('install', async function(event) {
     event.waitUntil(
         caches.open(CACHE_NAME)
         .then(function(cache) {
-            console.log('Service Worker: Installed');
+            console.log("Service Worker Installed");
         })
     );
 });
@@ -16,7 +16,7 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
     event.respondeWith(
         fetch(event.request)
-        .then(function(response) {
+        .then(async function(response) {
             if (response) {
                 return response;
             }
@@ -45,14 +45,14 @@ self.addEventListener('fetch', function(event) {
 
 // call the activate Event
 self.addEventListener('activate', function(event) {
-    console.log('Service Worker: Activated');
+    var cacheAllowlist = ['year-count-V1', 'flask-count-V1'];
 
     // Remove unwanted caches
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
-                    if (cacheName !== cacheNames) {
+                    if (cacheAllowlist.indexOf(cacheName) === -1) {
                         console.log('Service Worker: Clearing Old Cache');
                         return caches.delete(cacheName);
                     }

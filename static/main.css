@@ -50,13 +50,22 @@ h1 {
 }
 
 @media(max-width:500px) {
+    html,
+    * {
+        margin: 3px;
+        padding: 3px;
+    }
     h1 {
         font-size: 45px;
         display: flex;
         flex-direction: column;
     }
+    .content h2 {
+        font-size: 7em;
+        line-height: .8em;
+    }
     .time {
-        margin: 5px;
+        margin: 4px;
     }
     .time h2 {
         font-size: 12px;
