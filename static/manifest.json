@@ -8,8 +8,8 @@
     "scope": "/",
     "display": "standalone",
     "theme_color": "#041014",
-    "background_color": " #2f4f4f",
-    "author": "Romeo Mureithi Namunde",
+    "background_color": "#101c1c",
+    "author": "Romeo Mureithi",
     "icons": [{
             "scr": "",
             "sizes": "512x512",

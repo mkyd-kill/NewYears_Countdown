@@ -1,6 +1,10 @@
-from flask import Flask, render_template, make_response, send_from_directory
+from flask import Flask, render_template, make_response, send_from_directory, redirect, url_for
 
 app = Flask(__name__)
+
+@app.route('/')
+def go_home():
+    return redirect(url_for('home'))
 
 @app.route('/home')
 def home():

@@ -61,17 +61,17 @@ h1 {
         flex-direction: column;
     }
     .content h2 {
-        font-size: 7em;
+        font-size: 6em;
         line-height: .8em;
     }
     .time {
-        margin: 4px;
+        margin: 3px;
     }
     .time h2 {
-        font-size: 12px;
+        font-size: 11px;
     }
     .time small {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
