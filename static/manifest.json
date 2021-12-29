@@ -1,5 +1,7 @@
 {
     "name": "CountDown Timer",
+    "version": "0.5",
+    "version_name": "0.5 beta",
     "short_name": "Timer",
     "description": "New Year's Countdown Timer",
     "start_url": "/home",
@@ -10,6 +12,11 @@
     "theme_color": "#041014",
     "background_color": "#101c1c",
     "author": "Romeo Mureithi",
+    "content_security_policy": "default-src 'self'",
+    "developer": {
+        "name": "Romeo Mureithi",
+        "url": "https://github.com/mkyd-kill"
+    },
     "icons": [{
             "scr": "",
             "sizes": "512x512",

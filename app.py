@@ -1,4 +1,7 @@
 from flask import Flask, render_template, make_response, send_from_directory, redirect, url_for
+import datetime
+import multiprocessing
+import threading
 
 app = Flask(__name__)
 
@@ -6,8 +9,31 @@ app = Flask(__name__)
 def go_home():
     return redirect(url_for('home'))
 
+def new_year():
+    currentYear = datetime.datetime.now().year
+    now = datetime.datetime.now()
+    new_year = datetime.datetime(currentYear, 12, 29, 21, 35)
+    delta = datetime.timedelta(microseconds=-0.000000001)
+    time_until_newyear = new_year - now
+    while True:
+        if time_until_newyear < delta:
+            return redirect(url_for("alert"))
+        else:
+            return render_template('home.html')
+
 @app.route('/home')
 def home():
+    try:
+        process = multiprocessing.Process(target=new_year)
+        process.start()
+        process.join()
+    except Exception:
+        try:
+            process = threading.Thread(target=new_year)
+            process.start()
+            process.join()
+        except Exception:
+            return render_template(url_for("home"))
     return render_template('home.html')
 
 @app.route('/alert')
@@ -28,5 +54,5 @@ def manifest():
 
 if __name__ == '__main__':
     #from waitress import serve
-    app.run(use_reloader = True, debug=True)
+    app.run(use_reloader = False, debug=True)
     #serve(app, host="localhost", port=5000)
