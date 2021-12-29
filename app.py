@@ -1,6 +1,5 @@
 from flask import Flask, render_template, make_response, send_from_directory, redirect, url_for
 import datetime
-import multiprocessing
 import threading
 
 app = Flask(__name__)
@@ -24,16 +23,11 @@ def new_year():
 @app.route('/home')
 def home():
     try:
-        process = multiprocessing.Process(target=new_year)
-        process.start()
-        process.join()
+       process = threading.Thread(target=new_year)
+       process.start()
+       process.join()
     except Exception:
-        try:
-            process = threading.Thread(target=new_year)
-            process.start()
-            process.join()
-        except Exception:
-            return render_template(url_for("home"))
+        return render_template(url_for("home"))
     return render_template('home.html')
 
 @app.route('/alert')
