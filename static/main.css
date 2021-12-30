@@ -50,10 +50,6 @@ h1 {
 }
 
 @media(max-width:500px) {
-    * {
-        margin: 3px;
-        padding: 3px;
-    }
     h1 {
         font-size: 45px;
         display: flex;
@@ -61,7 +57,7 @@ h1 {
     }
     .content h2 {
         font-size: 6em;
-        line-height: .8em;
+        line-height: .9em;
     }
     .time {
         margin: 3px;

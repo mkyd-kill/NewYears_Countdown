@@ -1,6 +1,7 @@
 from flask import Flask, render_template, make_response, send_from_directory, redirect, url_for
 import datetime
 import threading
+import concurrent.futures
 
 app = Flask(__name__)
 
@@ -11,23 +12,24 @@ def go_home():
 def new_year():
     currentYear = datetime.datetime.now().year
     now = datetime.datetime.now()
-    new_year = datetime.datetime(currentYear, 12, 29, 21, 35)
+    new_year = datetime.datetime(currentYear + 1, 1, 1)
     delta = datetime.timedelta(microseconds=-0.000000001)
     time_until_newyear = new_year - now
     while True:
         if time_until_newyear < delta:
             return redirect(url_for("alert"))
-        else:
-            return render_template('home.html')
+        return render_template('home.html')
 
 @app.route('/home')
 def home():
     try:
-       process = threading.Thread(target=new_year)
-       process.start()
-       process.join()
-    except Exception:
-        return render_template(url_for("home"))
+        process = threading.Thread(target=new_year)
+        process.start()
+        process.join()
+    except Exception as error:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+            executor.map(new_year, range(3))
+            print(f"Error Detected: \n{error}")
     return render_template('home.html')
 
 @app.route('/alert')

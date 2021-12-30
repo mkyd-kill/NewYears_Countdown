@@ -43,3 +43,13 @@ setInterval(updateCountdowntime, 1000);
         });
     }
 })();
+
+// automatic background theme change
+(function() {
+    var curImgId = 0;
+    var numberOfImages = 5; // Change this to the number of background images
+    window.setInterval(function() {
+        $('body').css('background', 'url("' + curImgId + '.jpg")'); // set the image path here
+        curImgId = (curImgId + 1) % numberOfImages;
+    }, 15 * 1000);
+})();
