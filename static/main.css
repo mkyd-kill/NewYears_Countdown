@@ -104,3 +104,12 @@ section {
     color: aliceblue;
     -webkit-text-stroke: 0 aliceblue;
 }
+
+
+/* button */
+
+.add-button {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}
