@@ -21,6 +21,12 @@ function updateCountdowntime() {
     hours.innerHTML = h < 10 ? '0' + h : h;
     minutes.innerHTML = m < 10 ? '0' + m : m;
     seconds.innerHTML = s < 10 ? '0' + s : s;
+
+    if (currentTime == newYearTime) {
+        console.log(`Happy New Year ${newYearTime.getFullYear()}`);
+        alert(`Happy New Year ${newYearTime.getFullYear()}`);
+        $(location).prop('href', '/alert')
+    }
 }
 
 // setting interval
@@ -28,7 +34,7 @@ setInterval(updateCountdowntime, 1000);
 
 // make sure service workers are supported
 (function() {
-    if (navigator.serviceWorker) {
+    if (navigator.serviceWorker.ready) {
         // registration when the window loads
         window.addEventListener('load', function() {
             navigator.serviceWorker.register("/worker.js", { scope: '/home' })
@@ -42,14 +48,4 @@ setInterval(updateCountdowntime, 1000);
                 });
         });
     }
-})();
-
-// automatic background theme change
-(function() {
-    var curImgId = 0;
-    var numberOfImages = 5; // Change this to the number of background images
-    window.setInterval(function() {
-        $('body').css('background', 'url("' + curImgId + '.jpg")'); // set the image path here
-        curImgId = (curImgId + 1) % numberOfImages;
-    }, 15 * 1000);
 })();

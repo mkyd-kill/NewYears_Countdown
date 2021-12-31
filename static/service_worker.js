@@ -1,6 +1,6 @@
 // caching all pages
 // individual pages and all pages
-const CACHE_NAME = 'countdown-V2';
+const CACHE_NAME = 'countdown-V3';
 
 // calling the install Event
 self.addEventListener('install', async function(event) {
@@ -45,7 +45,10 @@ self.addEventListener('fetch', function(event) {
 
 // call the activate Event
 self.addEventListener('activate', function(event) {
-    var cacheAllowlist = ['year-count-V1', 'flask-count-V1'];
+    var cacheAllowlist = [
+        'year-count-V2',
+        'flask-count-V2'
+    ];
 
     // Remove unwanted caches
     event.waitUntil(

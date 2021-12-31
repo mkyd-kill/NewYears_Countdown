@@ -51,12 +51,12 @@ h1 {
 
 @media(max-width:500px) {
     h1 {
-        font-size: 45px;
+        font-size: 40px;
         display: flex;
         flex-direction: column;
     }
     .content h2 {
-        font-size: 6em;
+        font-size: 5em;
         line-height: .9em;
     }
     .time {

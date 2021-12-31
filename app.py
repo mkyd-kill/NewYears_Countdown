@@ -50,5 +50,5 @@ def manifest():
 
 if __name__ == '__main__':
     #from waitress import serve
-    app.run(use_reloader = False, debug=True)
+    app.run(use_reloader = True, debug=False)
     #serve(app, host="localhost", port=5000)
