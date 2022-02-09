@@ -37,10 +37,9 @@ def success():
     return render_template('alert.html')
 
 @app.route('/worker.js')
-def sw():
-    response = make_response(send_from_directory(directory='static', path='service_worker.js'))
-    #change the content header file. Can also omit; flask will handle correctly.
-    response.headers['Content-Type'] = 'application/javascript'
+def service_worker():
+    response = make_response(send_from_directory('static', 'service_worker.js'))
+    response.headers['Cache-Control'] = 'no-cache'
     return response
 
 @app.route('/manifest.json')
